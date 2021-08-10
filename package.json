@@ -1,0 +1,33 @@
+{
+  "name": "whats-docker",
+  "version": "1.0.0",
+  "description": "Presentation about docker",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navn-r/whats-docker.git"
+  },
+  "keywords": [
+    "docker"
+  ],
+  "author": "Navinn Ravindaran",
+  "license": "WTFPL License",
+  "bugs": {
+    "url": "https://github.com/navn-r/whats-docker/issues"
+  },
+  "homepage": "https://github.com/navn-r/whats-docker#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
