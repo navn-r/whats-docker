@@ -17,6 +17,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css"
     />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="reveal">
@@ -24,6 +25,349 @@
         <section>
           <h1>What's Docker?</h1>
           <p>How I used Docker to save my hands.</p>
+        </section>
+        <section>
+          <section>
+            <h1>Backstory</h1>
+            <p>
+              So I've you're like me, you've been typing for a really long time.
+            </p>
+          </section>
+          <section class="center">
+            <img src="./assets/baby.jpg" alt="baby typing" height="800" />
+            <span>A <em>really</em> long time.</span>
+          </section>
+          <section>
+            <h2>The <strike>Implications</strike> Complications</h2>
+            <div class="split">
+              <ul>
+                <li>Weird typing style</li>
+                <ul>
+                  <li>Not using all 5 fingers</li>
+                  <li>Using the wrong finger for certain keys</li>
+                </ul>
+                <li>Typing <em>for hours</em> without taking any breaks</li>
+                <ul>
+                  <li>Repeating the same motions when programming</li>
+                </ul>
+                <li>Improper posture and position</li>
+                <ul>
+                  <li>Typing while lying down</li>
+                  <li>Hunching over to type (laptops)</li>
+                </ul>
+              </ul>
+              <img src="./assets/typing.jpg" alt="man typing" />
+            </div>
+          </section>
+          <section>
+            <h1>Who cares?</h1>
+            <h2>Why does this matter?</h2>
+            <h3>What does this cause?</h3>
+          </section>
+          <section class="center">
+            <h2>Repetitive Strain Injury (RSI)</h2>
+            <div class="split">
+              <ul>
+                <li>
+                  A gradual buildup of damage to muscles, tendons, and nerves
+                  from repetitive motions
+                  <a
+                    href="https://www.healthline.com/health/repetitive-strain-injury"
+                    >(source)</a
+                  >
+                </li>
+                <li>Recovery Treatment - ⏰💰</li>
+                <ul>
+                  <li>Literal break in typing/movement</li>
+                  <li>Refactoring your work environment</li>
+                  <li>Braces or splints</li>
+                  <li>Physiotherapy + Exercise</li>
+                  <li>Surgery (worst case)</li>
+                </ul>
+              </ul>
+              <img src="./assets/injury.jpg" alt="elbow injury" height="600" />
+            </div>
+          </section>
+          <section>
+            <h1>Okay? 🤷‍♀</h1>
+            <p>What does this have to do with Docker?</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Backstory Pt. 2</h1>
+            <p>An attempt to tie this to Docker</p>
+          </section>
+          <section class="center">
+            <img
+              src="./assets/work-commands.png"
+              height="800"
+              alt="bash commands"
+            />
+            <p>
+              These commands needed to be run <em>simultaneously every time</em>
+            </p>
+          </section>
+          <section>
+            <h2>Other frustrations</h2>
+            <div class="split">
+              <ul>
+                <li><em>Relatively</em> old versions of software</li>
+                <ul>
+                  <li>Ruby 2.5.3 (Latest 3.0.2)</li>
+                  <li>Rails 4.2.8 (Latest 6.1.4)</li>
+                  <li>Node 10.18.1 (Latest 16.6.1)</li>
+                </ul>
+                <li>Onboarding a new developer was slow</li>
+                <ul>
+                  <li>Broke existing Node version</li>
+                  <li>Unable to use new Rails versions for other projects</li>
+                  <li>
+                    Have to install <em>long</em> list of dependencies that
+                    aren't used
+                  </li>
+                </ul>
+              </ul>
+              <img
+                src="./assets/spongebob.gif"
+                alt="spongebob old"
+                height="600"
+              />
+            </div>
+          </section>
+          <section>
+            <h1>Okay??? 🤷</h1>
+            <p>SERIOUSLY WTF DOES THIS HAVE TO DO WITH DOCKER?</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Docker in a nutshell</h1>
+            <p>Because this is a presentation, not a bedtime story</p>
+          </section>
+          <section>
+            <h2>What is a container?</h2>
+            <blockquote>
+              <a href="https://www.docker.com/resources/what-container"
+                >https://www.docker.com/resources/what-container</a
+              >
+            </blockquote>
+            <div class="split">
+              <ul>
+                <li>
+                  <em
+                    >Just a running bundle of stuff, with a Great Wall of China
+                    surrounding it</em
+                  >
+                </li>
+                <ul>
+                  <li>
+                    <strong>Everything</strong> needed to run an application
+                  </li>
+                  <li>Source Code + Environment</li>
+                </ul>
+                <li>Runs in isolation, away from your local environment</li>
+                <li>
+                  Uses your host kernel to run,
+                  <strong><em>not</em></strong> its own virtual machine
+                </li>
+                <li>Can be orchestrated together</li>
+                <ul>
+                  <li>Containers can network with each other</li>
+                  <li>Containers can depend on other containers</li>
+                  <li>Containers can share binaries</li>
+                </ul>
+              </ul>
+              <img
+                src="./assets/containers.png"
+                alt="docker container diagram"
+                style="background-color: #eee !important"
+                height="700"
+              />
+            </div>
+          </section>
+          <section>
+            <h2>How do I make one?</h2>
+            <p>Do I just put my laptop in a shipping container?</p>
+          </section>
+          <section>
+            <h2>What is an image?</h2>
+            <blockquote>
+              <a href="https://www.docker.com/resources/what-container"
+                >https://www.docker.com/resources/what-container</a
+              >
+            </blockquote>
+            <div class="split">
+              <ul>
+                <li>
+                  A static package that creates or 'spins up' a container
+                </li>
+                <li><strong>Everything</strong> needed to run a container</li>
+                <li>Stored alongside containers (same level)</li>
+                <li>
+                  Build-able from scratch or customize a pre-made image using
+                  <strong>Dockerfiles</strong>
+                </li>
+                <li>Images are shareable, containers <em>are not</em></li>
+                <ul>
+                  <li>
+                    Use container registries to push/pull app images (Heroku,
+                    DockerHub)
+                  </li>
+                </ul>
+              </ul>
+              <img
+                src="./assets/docker-image.jpg"
+                alt="docker image diagram"
+                height="600"
+              />
+            </div>
+          </section>
+          <section>
+            <h1>Too much talking 😴</h1>
+            <p>JUST SHOW SOME CODE ALREADY</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Docker in action</h1>
+            <p>This presentation is actually running inside a container!</p>
+          </section>
+          <section>
+            <h2>Example Docker structure</h2>
+            <blockquote>Dockerized & Overkill Express.js server</blockquote>
+            <div class="split" style="grid-template-columns: 1fr 2fr">
+              <img
+                src="./assets/filetree.png"
+                alt="application file structure"
+              />
+              <ul>
+                <li>
+                  <code>.github/workflows/deploy.yml</code>
+                </li>
+                <ul>
+                  <li>
+                    Build the image via Github Actions, then deploys to Heroku's
+                    Container Registry
+                  </li>
+                </ul>
+                <li>
+                  <code>.dockerignore</code>
+                </li>
+                <ul>
+                  <li>
+                    Files and directories that shouldn't be moved into the
+                    container
+                  </li>
+                </ul>
+                <li>
+                  <code>docker-compose.yml</code>
+                </li>
+                <ul>
+                  <li>Config to run shared containers and volumes</li>
+                </ul>
+                <li>
+                  <code>Dockerfile</code>
+                </li>
+                <ul>
+                  <li>Blueprint for building the image</li>
+                </ul>
+                <li>
+                  <code>heroku.yml</code>
+                </li>
+                <ul>
+                  <li>Config for Heroku to spin up a container</li>
+                </ul>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h2>Example Dockerfile</h2>
+            <div class="split">
+              <ul>
+                <li>
+                  Each step creates a <em>cacheable intermediate image</em>
+                </li>
+                <li>Image needs to rebuild anytime a step changes</li>
+                <br />
+                <li>bEsT pRaCtIcEs 👁👅👁</li>
+                <ul>
+                  <li>Minimize the image size as much as possible</li>
+                  <li>
+                    Always specify version numbers, avoid using
+                    <code>latest</code> tags
+                  </li>
+                  <li>
+                    Move frequently changing steps to the bottom of the file
+                  </li>
+                </ul>
+                <br />
+                <li>
+                  Want to learn more? <br />
+                  <a href="https://docs.docker.com/get-started/"
+                    >https://docs.docker.com/get-started/</a
+                  >
+                </li>
+              </ul>
+              <img
+                src="./assets/dockerfile.png"
+                alt="Dockerfile"
+                height="1000"
+                style="margin-top: -2rem"
+              />
+            </div>
+          </section>
+          <section>
+            <h2>
+              This seems cool<br />
+              but how did this save my hands?
+            </h2>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>The impact of Docker</h1>
+          </section>
+          <section>
+            <h2>Solutions to the frustrations</h2>
+            <div class="split">
+              <ul>
+                <li>
+                  Onboarding a new developer is now <em>stupid simple</em>
+                </li>
+                <ul>
+                  <li>1 command now: <code>docker-compose up</code></li>
+                  <li>
+                    <strong>No need</strong> to install Ruby, Node, or any
+                    dependencies locally, <em>just Docker</em>
+                  </li>
+                  <li>
+                    <strong>No need</strong> to even build the image, just pull
+                    the latest from Heroku and spin up the container
+                  </li>
+                </ul>
+                <li>
+                  Able to create a E2E environment in a CI Pipeline,
+                  <em>consistent to a developer's local machine</em>
+                </li>
+                <li>Build times are reduced (locally & deployment)</li>
+                <ul>
+                  <li>Will use the cached image steps when building</li>
+                </ul>
+              </ul>
+              <img src="./assets/dancing.gif" alt="Dancing" height="600" />
+            </div>
+          </section>
+          <section>
+            <h2>So, did Docker save my hands? 🤔</h2>
+          </section>
+          <section>
+            <h2>I'll let you be the judge of that</h2>
+          </section>
+        </section>
+        <section>
+          <h1>Fin.</h1>
+          <a href="https://github.com/navn-r/whats-docker"><code>GitHub: navn-r/whats-docker</code></a>
         </section>
       </div>
     </div>
@@ -50,7 +394,7 @@
         slideNumber: true,
 
         // Push each slide change to the browser history
-        history: false,
+        history: true,
 
         // Enable keyboard shortcuts for navigation
         keyboard: true,
@@ -132,30 +476,7 @@
         parallaxBackgroundVertical: null,
 
         // The display mode that will be used to show slides
-        display: 'block',
-
-        dependencies: [
-          {
-            src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/markdown/marked.js',
-          },
-          {
-            src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/markdown/markdown.js',
-          },
-          {
-            src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/notes/notes.js',
-            async: true,
-          },
-          {
-            src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/highlight/highlight.js',
-            async: true,
-            callback: function () {
-              hljs.initHighlightingOnLoad();
-            },
-          },
-        ],
-        markdown: {
-          smartypants: true,
-        },
+        display: 'grid',
       });
     </script>
   </body>
